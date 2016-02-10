@@ -16,8 +16,6 @@ import org.junit.Test;
 import edu.sbcc.cs105.Main;
 
 public class IntegerSignTester {
-	public static String[] requiredMethods = new String[] { "isZero", "isPositive", "isNegative" };
-
 	private static final int maximumScore = 6;
 	private static final int maximumAssignmentScore = 8;
 	private static int totalScore;
