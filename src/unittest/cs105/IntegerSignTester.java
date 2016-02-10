@@ -1,24 +1,32 @@
 package unittest.cs105;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
 
+import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import edu.sbcc.cs105.IntegerSign;
+import edu.sbcc.cs105.Main;
 
 public class IntegerSignTester {
 	public static String[] requiredMethods = new String[] { "isZero", "isPositive", "isNegative" };
 
-	private static final int maximumScore = 4;
+	private static final int maximumScore = 6;
 	private static final int maximumAssignmentScore = 8;
 	private static int totalScore;
 
+	private PrintStream oldOut;
+	private InputStream oldIn;
+	private ByteArrayOutputStream baos;
+	private ByteArrayInputStream bais;
+	
 	@BeforeClass
 	public static void beforeTesting() {
 		totalScore = 0;
@@ -37,38 +45,53 @@ public class IntegerSignTester {
 		System.out.println("criteria.");
 	}
 
-	@Test
-	public void testMethodPresence() throws Exception {
-		IntegerSign integerSign = new IntegerSign(100);
-		Method[] methods = integerSign.getClass().getMethods();
-		ArrayList<String> methodList = new ArrayList<String>();
-		for (Method method : methods) {
-			methodList.add(method.getName());
-		}
+	public void runTest(int year) {
+		this.bais = new ByteArrayInputStream((new Integer(year) + " ").toString().getBytes());
+		System.setIn(this.bais);		
+	}
+	
+	@Before
+	public void setUp() {
+		this.baos = new ByteArrayOutputStream();
+		this.oldOut = System.out;
+		this.oldIn  = System.in;
+		System.setOut(new PrintStream(baos));
+	}
 
-		for (String method : requiredMethods) {
-			assertTrue("\"" + method + "\"" + " not implemented.", methodList.contains(method));
-		}
+	@After
+	public void tearDown() {
+		System.setOut(this.oldOut);
+		System.setIn(this.oldIn);
+		
+		this.baos.reset();
+	}
+
+	@Test
+	public void checkPositive() throws Exception {
+		runTest(42);
+		Main.main(null);
+		
+		assertEquals("Output should match!", "Enter a number: positive\n", this.baos.toString() );
 
 		totalScore += 2;
 	}
 
 	@Test
-	public void testIntegerSignSigns() throws Exception {
-		IntegerSign integerSign = new IntegerSign(42);
-		assertFalse("42 is not zero", integerSign.isZero());
-		assertTrue("42 is positive", integerSign.isPositive());
-		assertFalse("42 is not negative", integerSign.isNegative());
+	public void checkNegative() throws Exception {
+		runTest(-42);
+		Main.main(null);
+		
+		assertEquals("Output should match!", "Enter a number: negative\n", this.baos.toString() );
 
-		integerSign = new IntegerSign(-42);
-		assertFalse("-42 is not zero", integerSign.isZero());
-		assertFalse("-42 is positive", integerSign.isPositive());
-		assertTrue("-42 is not negative", integerSign.isNegative());
-
-		integerSign = new IntegerSign(0);
-		assertTrue("0 is zero", integerSign.isZero());
-		assertTrue("0 is positive", integerSign.isPositive());
-		assertFalse("0 is not negative", integerSign.isNegative());
+		totalScore += 2;
+	}
+	
+	@Test
+	public void checkZero() throws Exception {
+		runTest(0);
+		Main.main(null);
+		
+		assertEquals("Output should match!", "Enter a number: zero\n", this.baos.toString() );
 
 		totalScore += 2;
 	}
