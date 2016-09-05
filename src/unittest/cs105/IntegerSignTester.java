@@ -2,29 +2,17 @@ package unittest.cs105;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
-
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import edu.sbcc.cs105.Main;
+import edu.sbcc.cs105.IntegerSign;
 
 public class IntegerSignTester {
 	private static final int maximumScore = 6;
 	private static final int maximumAssignmentScore = 8;
 	private static int totalScore;
 
-	private PrintStream oldOut;
-	private InputStream oldIn;
-	private ByteArrayOutputStream baos;
-	private ByteArrayInputStream bais;
-	
 	@BeforeClass
 	public static void beforeTesting() {
 		totalScore = 0;
@@ -43,53 +31,23 @@ public class IntegerSignTester {
 		System.out.println("criteria.");
 	}
 
-	public void runTest(int year) {
-		this.bais = new ByteArrayInputStream((new Integer(year) + " ").toString().getBytes());
-		System.setIn(this.bais);		
-	}
-	
-	@Before
-	public void setUp() {
-		this.baos = new ByteArrayOutputStream();
-		this.oldOut = System.out;
-		this.oldIn  = System.in;
-		System.setOut(new PrintStream(baos));
-	}
-
-	@After
-	public void tearDown() {
-		System.setOut(this.oldOut);
-		System.setIn(this.oldIn);
-		
-		this.baos.reset();
-	}
-
 	@Test
 	public void checkPositive() throws Exception {
-		runTest(42);
-		Main.main(null);
-		
-		assertEquals("Output should match!", "Enter a number: positive\n", this.baos.toString() );
+		assertEquals("Output should match!", "Enter a number: positive\n", IntegerSign.determineSign(42));
 
 		totalScore += 2;
 	}
 
 	@Test
 	public void checkNegative() throws Exception {
-		runTest(-42);
-		Main.main(null);
-		
-		assertEquals("Output should match!", "Enter a number: negative\n", this.baos.toString() );
+		assertEquals("Output should match!", "Enter a number: negative\n", IntegerSign.determineSign(-42));
 
 		totalScore += 2;
 	}
 	
 	@Test
 	public void checkZero() throws Exception {
-		runTest(0);
-		Main.main(null);
-		
-		assertEquals("Output should match!", "Enter a number: zero\n", this.baos.toString() );
+		assertEquals("Output should match!", "Enter a number: zero\n", IntegerSign.determineSign(0));
 
 		totalScore += 2;
 	}
