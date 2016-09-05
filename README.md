@@ -6,7 +6,7 @@ The purpose of this assignment is to apply what you have learned about decisions
 
 ### Problem Description
 
-The detailed description of this problem comes from the Programming Exercise P5.1 that is in the book (page 228).
+The detailed description of this problem comes from the Programming Exercise P3.1 that is in the book (page 126).
 
 This problem should be solved by writing all your code in `public static void main`. You will want to implement the algorithm inside of the `main` method. 
 
