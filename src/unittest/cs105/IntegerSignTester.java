@@ -33,21 +33,21 @@ public class IntegerSignTester {
 
 	@Test
 	public void checkPositive() throws Exception {
-		assertEquals("Output should match!", "Enter a number: positive\n", IntegerSign.determineSign(42));
+		assertEquals("Output should match!", "positive", IntegerSign.determineSign(42));
 
 		totalScore += 2;
 	}
 
 	@Test
 	public void checkNegative() throws Exception {
-		assertEquals("Output should match!", "Enter a number: negative\n", IntegerSign.determineSign(-42));
+		assertEquals("Output should match!", "negative", IntegerSign.determineSign(-42));
 
 		totalScore += 2;
 	}
 	
 	@Test
 	public void checkZero() throws Exception {
-		assertEquals("Output should match!", "Enter a number: zero\n", IntegerSign.determineSign(0));
+		assertEquals("Output should match!", "zero", IntegerSign.determineSign(0));
 
 		totalScore += 2;
 	}
