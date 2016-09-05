@@ -12,7 +12,7 @@ This problem should be solved by writing all your code in `public static void ma
 
 Using the test input, your output should look like:
 
-Enter a number: -1 negative
+`Enter a number: -1 negative`
 
 ### Getting Started
 
