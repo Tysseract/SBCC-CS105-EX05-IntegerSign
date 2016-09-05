@@ -24,11 +24,11 @@ package edu.sbcc.cs105;
 public class Main {
 
     public static String determineSign(int integer) {
+        // Put code here to determine sign of value and return string representation
     }
     
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-
+        // Put code here to get input from user, then call determineSign
     }
 
 }
