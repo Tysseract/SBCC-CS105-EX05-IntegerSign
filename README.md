@@ -21,7 +21,7 @@ Like our last exercise, we are going to do this exercise by writing the source c
 ```java
 package edu.sbcc.cs105;
 
-public class Main {
+public class IntegerSign {
 
     public static String determineSign(int integer) {
         // Put code here to determine sign of value and return string representation
