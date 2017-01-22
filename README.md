@@ -12,8 +12,10 @@ This problem should be solved by writing code in `public static void main` to ge
 
 Using the test input, your output should look like:
 
-```Enter a number: -1 
-negative```
+```
+Enter a number: -1 
+negative
+```
 
 ### Getting Started
 
