@@ -8,12 +8,12 @@ The purpose of this assignment is to apply what you have learned about decisions
 
 The detailed description of this problem comes from the Programming Exercise P3.1 that is in the book (page 126, of the _Late Objects_ version).
 
-This problem should be solved by writing code in `public static void main` to get input from the user. And then write code in 'public static determineSign' to output a string with either `negative`, `positive` or `zero`, based on the number given to the method.
+This problem should be solved by writing code in `public static void main` to get input from the user. And then write code in `public static determineSign` to output a string with either `negative`, `positive` or `zero`, based on the number given to the method.
 
 Using the test input, your output should look like:
 
-`Enter a number: -1 
-negative`
+```Enter a number: -1 
+negative```
 
 ### Getting Started
 
