@@ -6,13 +6,14 @@ The purpose of this assignment is to apply what you have learned about decisions
 
 ### Problem Description
 
-The detailed description of this problem comes from the Programming Exercise P3.1 that is in the book (page 126).
+The detailed description of this problem comes from the Programming Exercise P3.1 that is in the book (page 126, of the _Late Objects_ version).
 
-This problem should be solved by writing all your code in `public static void main`. You will want to implement the algorithm inside of the `main` method. 
+This problem should be solved by writing code in `public static void main` to get input from the user. And then write code in 'public static determineSign' to output a string with either `negative`, `positive` or `zero`, based on the number given to the method.
 
 Using the test input, your output should look like:
 
-`Enter a number: -1 negative`
+`Enter a number: -1 
+negative`
 
 ### Getting Started
 
@@ -72,8 +73,36 @@ You will see a few more dialogs (including ones that may ask for your BitBucket 
 
 #### Completing the turn-in process
 
-Now to complete the turn-in process, once you confirmed that your code is on BitBucket, you need to create a **build plan** on Bamboo. This action will create a Bamboo build plan that will build and test your code every time you push code to your project. You can also run builds manually
+Now to complete the turn-in process, once you confirmed that your code is on BitBucket, you need to create a **pull request** in the class BitBucket repository. This action will indicate to the original project that you have finished your coding and it will create a place to give feedback on a line by line basis. 
 
-Follow the directions in [How to Turn in Every Project in This Class](http://crowd.cs.sbcc.edu:7990/projects/CS105F2016/repos/allan.knight/browse/HowToTurnInEveryProjectInThisClass.md)
+Go to **your** repository or the repository for this assignment on BitBucket (the project you forked from to create your project).
 
-**NOTE** You do not need to anything on Canvas to turn-in your assignment, but your grade will be posted on there so that you may track your progress throughout the term.
+<img src="https://dl.dropboxusercontent.com/u/7698973/cs105/EX01-HelloWorld/create-pull-request.png" width="207" height="207" />
+
+1\. Click on the **Create pull request** icon. 
+
+You should see something similar to this picture:
+
+<img src="https://dl.dropboxusercontent.com/u/7698973/cs105/EX01-HelloWorld/pull-request-screen-first.png" width="600" height="250" />
+
+The next screen then shows the source and destination of the pull request. Your code is the source and is listed at the top. The destination is the original project that you forked from. The only thing to do on this screen is to select the **master** branch for your project. Once you select **Select Branch**, as directed below, you should see the following:
+
+<img src="https://dl.dropboxusercontent.com/u/7698973/cs105/EX01-HelloWorld/pull-request-master.png" width="600" height="250" />
+
+2\. Select **Select Branch** you should see something like this:
+
+3\. Select **master** 
+
+4\. Press the **Continue** button.
+
+Once you've followed these steps you should see this at the top:
+
+<img src="https://dl.dropboxusercontent.com/u/7698973/cs105/EX01-HelloWorld/pull-request-description.png" width="514" height="325" />
+
+5\. Under **Title**, give the pull request a meaningful title. It's mostly for your benefit.
+
+6\. Under **Description**, describe the purpose of this pull request. Usually it's just to submit the assignment. However, you can also use this field to let me know anything that might be wrong or different with your code.
+
+7\. Finally, click on **Create**
+
+After selecting **Create**, your code should build and be tested within a minute or so. Remember, green good, red bad.
